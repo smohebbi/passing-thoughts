@@ -7,16 +7,24 @@ export function Thought(props) {
     removeThought(thought.id);
   };
 
+  // useEffect(() => {
+  //   const timeRemaining = thought.expiresAt - Date.now();
+  //   const timeout = setTimeout(() => {
+  //     // alert('Time has passed!');
+  //     removeThought(thought.id);
+  //   }, timeRemaining);
+  //   return () => {
+  //     clearTimeout(timeout);
+  //   };
+  // }, [thought, removeThought]) 
+
   useEffect(() => {
-    const timeRemaining = thought.expiresAt - Date.now();
     const timeout = setTimeout(() => {
       // alert('Time has passed!');
       removeThought(thought.id);
-    }, timeRemaining);
-    return () => {
-      clearTimeout(timeout);
-    };
-  }, [thought, removeThought]) 
+    }, 5000)
+    return () => clearTimeout(timeout);
+  }, [null]) 
 
   return (
     <li className="Thought">
