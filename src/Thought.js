@@ -13,7 +13,7 @@ export function Thought(props) {
       removeThought(thought.id);
     }, 5000)
     return () => clearTimeout(timeout);
-  }, []) 
+  }, [thought]) 
 
   return (
     <li className="Thought">
